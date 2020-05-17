@@ -4,10 +4,12 @@ import {MenuComponent} from "./menu/menu.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./auth.guard";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {ActiveSitesComponent} from "./active-sites/active-sites.component";
 
 const routes: Routes = [
   {path: '', component: MenuComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
+  {path: 'activeSites', component: ActiveSitesComponent},
   {path: '**', component: NotFoundComponent, canActivate: [AuthGuard]}
 ];
 

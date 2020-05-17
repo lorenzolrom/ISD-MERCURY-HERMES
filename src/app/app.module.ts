@@ -23,6 +23,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {ErrorInterceptor} from "./_interceptors/error.interceptor";
 import {JwtInterceptor} from "./_interceptors/jwt.interceptor";
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ActiveSitesComponent } from './active-sites/active-sites.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SidenavComponent,
     LoginComponent,
     NotFoundComponent,
+    ActiveSitesComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

@@ -19,7 +19,6 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.currentUser);
   }
 
   hasPermission(permission: string): boolean {

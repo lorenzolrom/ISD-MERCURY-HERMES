@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-title>{{title}}</mat-card-title>
+  <mat-spinner *ngIf="loading"></mat-spinner>
+  <mat-card-content>
+    <ng-container *ngFor="let site of sites">
+      <mat-card>
+        <p class="site-name">{{site.name}}</p>
+        <mat-card-title>{{site.subdomain}}.{{site.domain}}</mat-card-title>
+        <a href="http://{{site.subdomain}}.{{site.domain}}" target="_blank"><button mat-mini-fab color="primary"><mat-icon>launch</mat-icon></button></a>
+      </mat-card>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

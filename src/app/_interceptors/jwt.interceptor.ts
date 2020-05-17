@@ -17,7 +17,7 @@ export class JwtInterceptor {
     {
       req = req.clone({
         setHeaders: {
-          jwt: `Bearer ${user.accessToken}`
+          jwt: `${user.accessToken}`
         }
       });
     }
