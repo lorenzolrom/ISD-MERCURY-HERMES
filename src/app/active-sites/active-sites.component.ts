@@ -42,7 +42,11 @@ export class ActiveSitesComponent implements OnInit {
 
   getApplications(siteId)
   {
-    return this.applications[siteId];
+    let apps = this.applications[siteId];
+    if(apps !== undefined && apps.length > 0)
+      return apps;
+
+    return null;
   }
 
   // Required to wait for Promise of sites to resolve

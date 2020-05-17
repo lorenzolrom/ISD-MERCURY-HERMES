@@ -25,7 +25,6 @@ import {JwtInterceptor} from "./_interceptors/jwt.interceptor";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ActiveSitesComponent } from './active-sites/active-sites.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -54,7 +53,6 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     HttpClientModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    FlexLayoutModule
   ],
   providers: [
     {
