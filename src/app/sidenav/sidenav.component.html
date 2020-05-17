@@ -1,0 +1,29 @@
+<div id="flex-wrapper">
+  <mat-toolbar id="header" [ngClass]="'mat-elevation-z4'">
+    <button mat-button class="mat-icon-button" (click)="sidenav.toggle()">
+      <mat-icon role="img" id="">
+        menu
+      </mat-icon>
+    </button>
+    <a href="#" routerLink="/"><img id="logo" src="assets/logo.svg" alt="HERMES"></a>
+  </mat-toolbar>
+  <mat-sidenav-container id="container">
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <mat-list-item mat-ripple routerLink="/">
+          Launchpad
+        </mat-list-item>
+        <ng-container *ngFor="let item of menuItems">
+          <ng-container *ngFor="let action of item.actions">
+            <mat-list-item mat-ripple routerLink="{{action.link}}">
+              {{action.action}}
+            </mat-list-item>
+          </ng-container>
+        </ng-container>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

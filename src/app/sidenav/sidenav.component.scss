@@ -1,0 +1,25 @@
+mat-sidenav-container#container {
+  flex: 1 0 auto;
+}
+
+mat-sidenav-content {
+  padding: 10px;
+}
+
+mat-toolbar#header {
+  background-color: #004479;
+  color: #FFFFFF;
+  height: 65px;
+  z-index: 999;
+}
+
+mat-toolbar img#logo {
+  margin-top: 5px;
+  height: 50px;
+}
+
+div#flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}

@@ -1,0 +1,19 @@
+<div id="loginWrapper">
+  <mat-card>
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <label>
+        <input [(ngModel)]="loginData.username" type="text" matInput>
+      </label>
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <label>
+        <input [(ngModel)]="loginData.password" type="password" matInput>
+      </label>
+    </mat-form-field>
+    <br/>
+    <button mat-raised-button (click)="loginUser()">Login</button>
+  </mat-card>
+</div>
