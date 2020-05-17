@@ -1,5 +1,6 @@
 export const GlobalVariables = Object.freeze({
   API_URL: "https://tools.llrweb.com/ic/",
+  INFOSCAPE_URL: "https://tools.llrweb.com/",
   MENU_ITEMS: [
     {
       title: 'Web Services',

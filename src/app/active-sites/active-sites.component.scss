@@ -1,3 +1,30 @@
-mat-card mat-card {
+mat-card#active-sites>mat-card-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+mat-card.site {
   background-color: #28a745;
+  position: relative;
+}
+
+mat-list-item button mat-icon {
+  margin-right: 5px;
+}
+
+mat-list-item button:last-child {
+  margin-bottom: 10px;
+}
+
+p.site-name {
+  font-size: 1.1rem;
+}
+
+p.app-label {
+  border-top: 1px solid black;
+  padding-top: 10px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: white;
+  font-size: 1.2rem;
 }
