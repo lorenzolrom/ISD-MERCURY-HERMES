@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../auth.service";
+import { AuthService } from "../_services/auth.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import {first} from "rxjs/operators";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,30 +15,22 @@ export class LoginComponent implements OnInit {
     password: ''
   }
 
-  constructor(private _auth: AuthService, private _snackBar: MatSnackBar) { }
+  nextUrl: string;
+
+  constructor(private _auth: AuthService, private _snackBar: MatSnackBar, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.nextUrl = this.route.snapshot.queryParams['nextUrl'] || '/';
   }
 
   loginUser() {
-    this._auth.loginUser(this.loginData).subscribe(
-      res => this.loginSuccess(res),
-      err => this.loginFailure(err)
+    this._auth.login(this.loginData).pipe(first()).subscribe(
+      data => {
+        this.router.navigate([this.nextUrl]);
+      },
+      error => {
+        this._snackBar.open(error)
+      }
     );
   }
-
-  // Process successful login
-  loginSuccess(res)
-  {
-    // Assign JWT to localstorage
-    localStorage.setItem('access_token', res.access_token);
-    this._snackBar.open('Successfully logged in');
-  }
-
-  // Process failed login
-  loginFailure(err)
-  {
-    this._snackBar.open(err.error.errors);
-  }
-
 }

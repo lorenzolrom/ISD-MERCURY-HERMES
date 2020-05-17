@@ -19,8 +19,11 @@ import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
-import{MatSnackBarModule} from "@angular/material/snack-bar";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {ErrorInterceptor} from "./_interceptors/error.interceptor";
+import {JwtInterceptor} from "./_interceptors/jwt.interceptor";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import{MatSnackBarModule} from "@angular/material/snack-bar";
     SidenavComponent,
     LockRequestComponent,
     LoginComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,18 @@ import{MatSnackBarModule} from "@angular/material/snack-bar";
     HttpClientModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

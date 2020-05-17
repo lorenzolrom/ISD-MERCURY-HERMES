@@ -4,11 +4,13 @@ import {MenuComponent} from "./menu/menu.component";
 import {LockRequestComponent} from "./lock-request/lock-request.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./auth.guard";
+import {NotFoundComponent} from "./not-found/not-found.component";
 
 const routes: Routes = [
   {path: '', component: MenuComponent, canActivate: [AuthGuard]},
   {path: 'locks', component: LockRequestComponent, canActivate: [AuthGuard]},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: '**', component: NotFoundComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
