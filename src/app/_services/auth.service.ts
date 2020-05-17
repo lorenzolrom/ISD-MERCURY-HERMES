@@ -40,4 +40,8 @@ export class AuthService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
+
+  hasPermission(permission: string): boolean {
+    return this.currentUserSubject.value.permissions.indexOf(permission) !== -1;
+  }
 }

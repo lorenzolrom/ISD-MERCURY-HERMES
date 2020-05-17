@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {AuthService} from "./_services/auth.service";
+import {Router} from "@angular/router";
+import {User} from "./_models/user";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  currentUser: User;
   title = 'hermes';
+
+  constructor(private _auth: AuthService) {
+    this._auth.currentUser.subscribe(x =>this.currentUser = x);
+  }
 }

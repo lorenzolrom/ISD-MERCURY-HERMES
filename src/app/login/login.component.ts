@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate([this.nextUrl]);
       },
       error => {
-        this._snackBar.open(error)
+        this._snackBar.open(error.error.errors, 'Dismiss', {duration: 3000})
       }
     );
   }

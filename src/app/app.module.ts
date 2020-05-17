@@ -10,7 +10,6 @@ import {MatIconModule} from "@angular/material/icon";
 import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatGridListModule} from "@angular/material/grid-list";
-import { LockRequestComponent } from './lock-request/lock-request.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
@@ -30,7 +29,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppComponent,
     MenuComponent,
     SidenavComponent,
-    LockRequestComponent,
     LoginComponent,
     NotFoundComponent,
   ],

@@ -4,16 +4,20 @@
   </mat-card-title>
   <mat-card-content id="menu-content">
     <ng-container *ngFor="let item of menuItems">
-      <mat-card>
-        <mat-card-title>{{item.title}}</mat-card-title>
-        <mat-list *ngFor="let action of item.actions">
-          <mat-list-item>
-            <button mat-button routerLink="{{ action.link }}">
-              <mat-icon role="img" class="menu-icon">{{ action.icon }}</mat-icon>{{ action.action }}
-            </button>
-          </mat-list-item>
-        </mat-list>
-      </mat-card>
+      <ng-container *ngIf="hasPermission(item.permission)">
+        <mat-card>
+          <mat-card-title>{{item.title}}</mat-card-title>
+          <mat-list *ngFor="let action of item.actions">
+            <ng-container *ngIf="hasPermission(action.permission)">
+              <mat-list-item>
+                <button mat-button routerLink="{{ action.link }}">
+                  <mat-icon role="img" class="menu-icon">{{ action.icon }}</mat-icon>{{ action.action }}
+                </button>
+              </mat-list-item>
+            </ng-container>
+          </mat-list>
+        </mat-card>
+      </ng-container>
     </ng-container>
   </mat-card-content>
 </mat-card>

@@ -10,7 +10,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
       <label>
-        <input [(ngModel)]="loginData.password" type="password" matInput>
+        <input [(ngModel)]="loginData.password" type="password" matInput (keydown.enter)="loginUser()">
       </label>
     </mat-form-field>
     <br/>
