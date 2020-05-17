@@ -15,16 +15,25 @@ export class ErrorInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
   {
     return next.handle(req).pipe(
-      retry(1),
       catchError((error: HttpErrorResponse) => {
+        let status = error.status;
         let errorMessage = '';
-        if(error.error instanceof ErrorEvent) {
-          errorMessage = `Error: ${error.error.error}`;
-        } else {
-          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`
+
+        if(error.error.errors !== undefined) // This is how IC returns errors
+        {
+          if(status === 401) // Permissions failure
+          {
+            this.router.navigate(['/']);
+          }
+
+          errorMessage = error.error.errors;
         }
-        this._snackBar.open(errorMessage, 'Dismiss', {duration: 3000});
-        this.router.navigate(['/login']);
+        else
+        {
+          errorMessage = 'General Error';
+        }
+
+        this._snackBar.open(errorMessage, 'Dismiss');
         return throwError(errorMessage);
       })
     )

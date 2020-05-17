@@ -27,9 +27,6 @@ export class LoginComponent implements OnInit {
     this._auth.login(this.loginData).pipe(first()).subscribe(
       data => {
         this.router.navigate([this.nextUrl]);
-      },
-      error => {
-        this._snackBar.open(error.error.errors, 'Dismiss', {duration: 3000})
       }
     );
   }
