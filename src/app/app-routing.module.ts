@@ -10,8 +10,8 @@ import {PasswordResetComponent} from "./password-reset/password-reset.component"
 const routes: Routes = [
   {path: '', component: MenuComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'passwordReset', component: PasswordResetComponent},
-  {path: 'activeSites', component: ActiveSitesComponent},
+  {path: 'passwordReset', component: PasswordResetComponent, canActivate: [AuthGuard]},
+  {path: 'activeSites', component: ActiveSitesComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundComponent, canActivate: [AuthGuard]}
 ];
 
