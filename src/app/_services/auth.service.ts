@@ -42,6 +42,9 @@ export class AuthService {
   }
 
   hasPermission(permission: string): boolean {
+    if(permission.length < 1)
+      return true;
+
     return this.currentUserSubject.value.permissions.indexOf(permission) !== -1;
   }
 }

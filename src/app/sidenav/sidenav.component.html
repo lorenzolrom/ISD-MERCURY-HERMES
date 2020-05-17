@@ -6,6 +6,11 @@
       </mat-icon>
     </button>
     <a href="#" routerLink="/"><img id="logo" src="assets/logo.svg" alt="HERMES"></a>
+    <div id="spacer"></div>
+    <button id="account" mat-button *ngIf="currentUser">
+      <mat-icon>account_circle</mat-icon>
+      {{currentUser.firstName}} {{currentUser.lastName}}
+    </button>
   </mat-toolbar>
   <mat-sidenav-container id="container">
     <mat-sidenav #sidenav>

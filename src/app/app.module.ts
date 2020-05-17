@@ -25,6 +25,7 @@ import {JwtInterceptor} from "./_interceptors/jwt.interceptor";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ActiveSitesComponent } from './active-sites/active-sites.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     LoginComponent,
     NotFoundComponent,
     ActiveSitesComponent,
+    PasswordResetComponent,
   ],
   imports: [
     BrowserModule,

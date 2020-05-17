@@ -23,3 +23,11 @@ div#flex-wrapper {
   min-height: 100vh;
   flex-direction: column;
 }
+
+button#account {
+  float: right;
+}
+
+div#spacer {
+  flex: 1;
+}

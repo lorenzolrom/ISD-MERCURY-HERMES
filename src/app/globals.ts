@@ -3,6 +3,18 @@ export const GlobalVariables = Object.freeze({
   INFOSCAPE_URL: "https://tools.llrweb.com/",
   MENU_ITEMS: [
     {
+      title: 'Account Self-Service',
+      permission: '',
+      actions: [
+        {
+          icon: 'vpn_key',
+          action: 'Change Password',
+          link: '/passwordReset',
+          permission: ''
+        }
+      ]
+    },
+    {
       title: 'Web Services',
       permission: 'itsm_web',
       actions: [
