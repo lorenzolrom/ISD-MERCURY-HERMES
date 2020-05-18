@@ -4,13 +4,14 @@ import {Observable, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import {AuthService} from "../_services/auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorInterceptor {
 
-  constructor(private _snackBar: MatSnackBar, private router: Router) { }
+  constructor(private _snackBar: MatSnackBar, private router: Router, private _auth: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
   {
@@ -25,6 +26,7 @@ export class ErrorInterceptor {
           {
             if(error.error.errors.length === 1 && error.error.errors[0] == 'Session expired')
             {
+              this._auth.logout();
               this.router.navigate(['/login']);
             }
             else
