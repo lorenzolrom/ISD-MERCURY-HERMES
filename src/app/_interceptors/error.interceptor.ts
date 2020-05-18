@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpRequest} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
-import {catchError, retry} from "rxjs/operators";
+import {catchError} from "rxjs/operators";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 
@@ -21,9 +21,16 @@ export class ErrorInterceptor {
 
         if(error.error.errors !== undefined) // This is how IC returns errors
         {
-          if(status === 401) // Permissions failure
+          if(status === 401 || status === 403) // Permissions failure
           {
-            this.router.navigate(['/']);
+            if(error.error.errors.length === 1 && error.error.errors[0] == 'Session expired')
+            {
+              this.router.navigate(['/login']);
+            }
+            else
+            {
+              this.router.navigate(['/']);
+            }
           }
 
           errorMessage = error.error.errors;
