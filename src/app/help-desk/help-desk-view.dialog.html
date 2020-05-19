@@ -1,0 +1,58 @@
+<h1>{{data.title}} - {{data.workspaceName}} #{{data.number}}</h1>
+<form id="requestDialogForm">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <label>
+      <input disabled="" matInput value="{{data.title}}">
+    </label>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Workspace</mat-label>
+    <label>
+      <input disabled="" matInput value="{{data.workspaceName}}">
+    </label>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Number</mat-label>
+    <label>
+      <input disabled="" matInput value="{{data.number}}">
+    </label>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Type</mat-label>
+    <label>
+      <input disabled="" matInput value="{{data.type}}">
+    </label>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <label>
+      <input disabled="" matInput value="{{data.category}}">
+    </label>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <label>
+      <input disabled="" matInput value="{{data.status}}">
+    </label>
+  </mat-form-field>
+  <mat-form-field *ngIf="data.closureCodeName">
+    <mat-label>Closure Code</mat-label>
+    <label>
+      <input disabled="" matInput value="{{data.closureCodeName}}">
+    </label>
+  </mat-form-field>
+  <mat-form-field *ngIf="data.desiredDate">
+    <mat-label>Desired Date</mat-label>
+    <label>
+      <input disabled="" matInput value="{{data.desiredDate}}">
+    </label>
+  </mat-form-field>
+  <mat-form-field *ngIf="data.scheduledDate">
+    <mat-label>Scheduled Date</mat-label>
+    <label>
+      <input disabled="" matInput value="{{data.scheduledDate}}">
+    </label>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="this.dialogRef.close()">Close</button>
+</form>

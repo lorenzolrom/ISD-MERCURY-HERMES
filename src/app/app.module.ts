@@ -26,6 +26,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ActiveSitesComponent } from './active-sites/active-sites.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import {HelpDeskLandingComponent} from "./help-desk/help-desk-landing.component";
+import {HelpDeskViewDialog} from "./help-desk/help-desk-view.dialog";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -36,6 +42,8 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
     NotFoundComponent,
     ActiveSitesComponent,
     PasswordResetComponent,
+    HelpDeskLandingComponent,
+    HelpDeskViewDialog,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +63,10 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
     HttpClientModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatSortModule,
+    MatDialogModule
   ],
   providers: [
     {

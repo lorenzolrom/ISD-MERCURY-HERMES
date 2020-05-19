@@ -15,6 +15,18 @@ export const GlobalVariables = Object.freeze({
       ]
     },
     {
+      title: 'Help Desk',
+      permission: 'tickets',
+      actions: [
+        {
+          icon: 'forum',
+          action: 'Help Desk Requests',
+          link: '/helpDesk',
+          permission: 'tickets-customer'
+        }
+      ]
+    },
+    {
       title: 'Web Services',
       permission: 'itsm_web',
       actions: [
