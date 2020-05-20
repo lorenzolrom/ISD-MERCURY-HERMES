@@ -41,7 +41,7 @@ export class HelpDeskNewDialog {
         this._snackBar.open('Request Submitted', 'Dismiss');
         this.dialogRef.close();
       },
-      error => {this.submitting = false;}
+      () => {this.submitting = false;}
     );
   }
 }

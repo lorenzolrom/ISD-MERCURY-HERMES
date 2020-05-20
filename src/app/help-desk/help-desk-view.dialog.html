@@ -54,5 +54,12 @@
       <input disabled="" matInput value="{{data.scheduledDate}}">
     </label>
   </mat-form-field>
+  <p id="updatesLabel">Updates</p>
+  <div *ngFor="let update of data.updates">
+    <div class="requestUpdate">
+      <p>{{update.time}}</p>
+      <p [innerHTML]="update.description"></p>
+    </div>
+  </div>
   <button mat-raised-button color="primary" (click)="this.dialogRef.close()">Close</button>
 </form>

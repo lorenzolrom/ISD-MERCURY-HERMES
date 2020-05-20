@@ -5,7 +5,7 @@ import {MatSort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
 import {HelpDeskViewDialog} from "./help-desk-view.dialog";
 import {MatDialog} from "@angular/material/dialog";
-import {map} from "rxjs/operators";
+import {map, mergeMap} from "rxjs/operators";
 import {HelpDeskNewDialog} from "./help-desk-new.dialog";
 
 @Component({
@@ -51,14 +51,25 @@ export class HelpDeskLandingComponent implements OnInit {
    */
   openRequest(workspace, number): void
   {
+    let requestData;
+    let updateData;
+
     this._api.get('tickets/requests/' + workspace + '/' + number).pipe(
-      map(request => {
+      map(request => { // Get Request Details
+        requestData = request;
         return request;
-      })
-    ).subscribe(result => {
-      this.dialog.open(HelpDeskViewDialog, {
-        data: result
-      })
+      }),
+      mergeMap( // Then...get updates from request
+        () => this._api.get('tickets/requests/' + workspace + '/' + number + '/updates')
+      )).pipe(
+        map(updates => {
+          updateData = updates;
+        })
+      ).subscribe(() => {
+        requestData['updates'] = updateData; // Merge datasets
+        this.dialog.open(HelpDeskViewDialog, { // Open dialog
+          data: requestData
+        });
     });
   }
 

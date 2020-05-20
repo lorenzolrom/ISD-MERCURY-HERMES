@@ -5,3 +5,12 @@ form#requestDialogForm input {
 form#requestDialogForm mat-form-field {
   display: block;
 }
+
+p#updatesLabel {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: .7rem;
+}
+
+div.requestUpdate p:first-child {
+  font-weight: 500;
+}
