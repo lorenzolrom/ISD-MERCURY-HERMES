@@ -1,4 +1,5 @@
-<h1>{{data.title}} - {{data.workspaceName}} #{{data.number}}</h1>
+<h1 mat-dialog-title>{{data.title}} - {{data.workspaceName}} #{{data.number}}</h1>
+<mat-dialog-content>
 <form id="requestDialogForm">
   <mat-form-field>
     <mat-label>Title</mat-label>
@@ -61,5 +62,8 @@
       <p [innerHTML]="update.description"></p>
     </div>
   </div>
-  <button mat-raised-button color="primary" (click)="this.dialogRef.close()">Close</button>
 </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-dialog-close mat-raised-button color="primary">Close</button>
+</mat-dialog-actions>

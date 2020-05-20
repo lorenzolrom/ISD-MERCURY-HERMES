@@ -1,42 +1,46 @@
-<h1>New Request</h1>
-<mat-progress-bar *ngIf="submitting" mode="indeterminate"></mat-progress-bar>
-<form id="requestDialogForm">
-  <mat-form-field>
-    <mat-label>Title</mat-label>
-    <label>
-      <input matInput required [(ngModel)]="requestData.title" type="text" name="title">
-    </label>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Type</mat-label>
-    <mat-select required [(ngModel)]="requestData.type" name="type">
-      <mat-option *ngFor="let typ of data.type" [value]="typ.code">
-        {{typ.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Category</mat-label>
-    <mat-select required [(ngModel)]="requestData.category" name="category">
-      <mat-option *ngFor="let cat of data.category" [value]="cat.code">
-        {{cat.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Desired Date (optional)</mat-label>
-    <label>
-      <input matInput [matDatepicker]="picker" [(ngModel)]="requestData.desiredDateRaw" name="desiredDateRaw">
-    </label>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Description</mat-label>
-    <label>
-      <textarea matInput required [(ngModel)]="requestData.description" name="description"></textarea>
-    </label>
-  </mat-form-field>
+<h1 mat-dialog-title>New Request</h1>
+<mat-dialog-content>
+  <mat-progress-bar *ngIf="submitting" mode="indeterminate"></mat-progress-bar>
+  <form id="requestDialogForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <label>
+        <input matInput required [(ngModel)]="requestData.title" type="text" name="title">
+      </label>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select required [(ngModel)]="requestData.type" name="type">
+        <mat-option *ngFor="let typ of data.type" [value]="typ.code">
+          {{typ.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select required [(ngModel)]="requestData.category" name="category">
+        <mat-option *ngFor="let cat of data.category" [value]="cat.code">
+          {{cat.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Desired Date (optional)</mat-label>
+      <label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="requestData.desiredDateRaw" name="desiredDateRaw">
+      </label>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <label>
+        <textarea matInput required [(ngModel)]="requestData.description" name="description"></textarea>
+      </label>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
   <button id="submitButton" mat-raised-button color="primary" (click)="submitRequest()">Submit</button>
-  <button mat-raised-button color="warn" (click)="this.dialogRef.close()">Cancel</button>
-</form>
+  <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+</mat-dialog-actions>
