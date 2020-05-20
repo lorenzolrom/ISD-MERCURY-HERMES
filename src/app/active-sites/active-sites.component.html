@@ -1,6 +1,6 @@
 <mat-card id="active-sites">
   <mat-card-title>{{title}}</mat-card-title>
-  <mat-spinner *ngIf="loading"></mat-spinner>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
   <mat-card-content>
     <ng-container *ngFor="let site of sites">
       <mat-card class="site">

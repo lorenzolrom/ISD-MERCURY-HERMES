@@ -13,7 +13,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
-import {MatRippleModule} from "@angular/material/core";
+import {MAT_DATE_LOCALE, MatNativeDateModule, MatRippleModule} from "@angular/material/core";
 import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
@@ -28,10 +28,14 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import {HelpDeskLandingComponent} from "./help-desk/help-desk-landing.component";
 import {HelpDeskViewDialog} from "./help-desk/help-desk-view.dialog";
+import {HelpDeskNewDialog} from "./help-desk/help-desk-new.dialog";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatSelectModule} from "@angular/material/select";
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
@@ -44,6 +48,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     PasswordResetComponent,
     HelpDeskLandingComponent,
     HelpDeskViewDialog,
+    HelpDeskNewDialog,
   ],
   imports: [
     BrowserModule,
@@ -66,9 +71,14 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatTooltipModule,
     MatTableModule,
     MatSortModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
+    MatNativeDateModule,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
