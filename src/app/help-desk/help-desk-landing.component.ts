@@ -18,12 +18,13 @@ export class HelpDeskLandingComponent implements OnInit {
   requests;
   dataSource;
 
-  loadingOpenRequests: boolean = true;
+  loadingOpenRequests: boolean = false;
   title: string = "Help Desk";
   infoScapeUrl: string;
 
   constructor(private _api: ApiService, public dialog: MatDialog) {
     this.infoScapeUrl = GlobalVariables.INFOSCAPE_URL;
+    //setInterval(() => {this.ngOnInit()}, 1000); This will continue running even after page is navigated away from
   }
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -41,6 +42,7 @@ export class HelpDeskLandingComponent implements OnInit {
    */
   loadRequests()
   {
+    this.loadingOpenRequests = true;
     return this._api.get('tickets/requests/open').toPromise();
   }
 
