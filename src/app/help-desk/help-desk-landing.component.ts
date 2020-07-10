@@ -7,6 +7,7 @@ import {HelpDeskViewDialog} from "./help-desk-view.dialog";
 import {MatDialog} from "@angular/material/dialog";
 import {map, mergeMap} from "rxjs/operators";
 import {HelpDeskNewDialog} from "./help-desk-new.dialog";
+import {HelpDeskUpdateDialog} from "./help-desk-update.dialog";
 
 @Component({
   selector: 'app-help-desk-landing',
@@ -89,6 +90,13 @@ export class HelpDeskLandingComponent implements OnInit {
         width: '500px',
         data: result
       });
+    })
+  }
+
+  openUpdateRequest(): void
+  {
+    this.dialog.open(HelpDeskUpdateDialog, {
+      width: '500px'
     })
   }
 }

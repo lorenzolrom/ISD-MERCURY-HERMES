@@ -36,6 +36,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import { HelpDeskUpdateDialog } from './help-desk/help-desk-update.dialog';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     HelpDeskLandingComponent,
     HelpDeskViewDialog,
     HelpDeskNewDialog,
+    HelpDeskUpdateDialog,
   ],
   imports: [
     BrowserModule,

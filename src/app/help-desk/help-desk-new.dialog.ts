@@ -2,6 +2,7 @@ import {ApiService} from "../_services/api.service";
 import {Component, Inject} from "@angular/core";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {GlobalVariables} from "../globals";
 
 export interface DialogData {
   category; // Array of categories
@@ -38,7 +39,7 @@ export class HelpDeskNewDialog {
 
     return this._api.post('tickets/requests', this.requestData).subscribe(
       () => {
-        this._snackBar.open('Request Submitted', 'Dismiss');
+        this._snackBar.open('Request Submitted', 'Dismiss', {duration: GlobalVariables.NOTIFICIATION_DURATION});
         this.dialogRef.close();
       },
       () => {this.submitting = false;}

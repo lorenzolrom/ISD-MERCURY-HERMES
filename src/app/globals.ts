@@ -1,4 +1,5 @@
 export const GlobalVariables = Object.freeze({
+  NOTIFICIATION_DURATION: 3000,
   API_URL: "https://tools.llrweb.com/ic/",
   INFOSCAPE_URL: "https://tools.llrweb.com/",
   MENU_ITEMS: [

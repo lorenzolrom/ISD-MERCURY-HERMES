@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ApiService} from "../_services/api.service";
+import {GlobalVariables} from "../globals";
 
 @Component({
   selector: 'app-password-reset',
@@ -21,7 +22,7 @@ export class PasswordResetComponent implements OnInit {
 
   resetPassword(){
     return this.http.put('currentUser/changepassword', this.resetData).subscribe(
-      () => this._snackBar.open('Password changed')
+      () => this._snackBar.open('Password changed', 'DISMISS', {duration: GlobalVariables.NOTIFICIATION_DURATION})
     );
   }
 

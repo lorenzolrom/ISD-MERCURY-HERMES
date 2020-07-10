@@ -5,6 +5,7 @@ import {catchError} from "rxjs/operators";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 import {AuthService} from "../_services/auth.service";
+import {GlobalVariables} from "../globals";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,8 @@ export class ErrorInterceptor {
         let status = error.status;
         let errorMessage = '';
 
+        let timeoutNotifications = false; // This will control whether the notification will automatically dissapear
+
         if(error.error.errors !== undefined) // This is how IC returns errors
         {
           if(status === 401 || status === 403) // Permissions failure
@@ -33,6 +36,8 @@ export class ErrorInterceptor {
             {
               this.router.navigate(['/']);
             }
+
+            timeoutNotifications = true;
           }
 
           errorMessage = error.error.errors;
@@ -42,7 +47,15 @@ export class ErrorInterceptor {
           errorMessage = 'General Error';
         }
 
-        this._snackBar.open(errorMessage, 'Dismiss');
+        if(timeoutNotifications)
+        {
+          this._snackBar.open(errorMessage, 'Dismiss', {duration: GlobalVariables.NOTIFICIATION_DURATION});
+        }
+        else
+        {
+          this._snackBar.open(errorMessage, 'Dismiss');
+        }
+
         return throwError(errorMessage);
       })
     )

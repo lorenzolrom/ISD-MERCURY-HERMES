@@ -36,6 +36,10 @@ export class AuthService {
 
   }
 
+  isLoggedIn() {
+    this.http.get<any>(GlobalVariables.API_URL + 'currentUser', {observe: 'response'}).subscribe();
+  }
+
   logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);

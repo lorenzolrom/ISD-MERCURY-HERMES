@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Update Request</h1>
+<mat-dialog-content>
+  <mat-progress-bar *ngIf="submitting" mode="indeterminate"></mat-progress-bar>
+  <form id="requestDialogForm">
+    <mat-form-field>
+      <mat-label>Update</mat-label>
+      <label>
+        <textarea matInput required [(ngModel)]="requestData.description" name="description"></textarea>
+      </label>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button id="submitButton" mat-raised-button color="primary" (click)="submitUpdate()">Submit</button>
+  <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+</mat-dialog-actions>
